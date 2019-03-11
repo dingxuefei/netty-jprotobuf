@@ -1,0 +1,18 @@
+package com.iscas.base.biz.aop.associate;
+
+/**
+ * //TODO
+ *
+ * @author zhuquanwen
+ * @vesion 1.0
+ * @date 2018/9/4 11:04
+ * @since jdk1.8
+ */
+public enum CustomAssociateType {
+    /**左连*/
+    LEFT,
+    /**右连*/
+    RIGHT,
+    /**内连*/
+    INNER;
+}

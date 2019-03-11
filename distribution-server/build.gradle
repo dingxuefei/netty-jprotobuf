@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'com.iscas.distribute'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":netty-coder")
+
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+    // netty
+    compile group: 'io.netty', name: 'netty-all'
+//    compile "com.corundumstudio.socketio:netty-socketio:${nettySocketIOVersion}"
+    //okhttp
+//    compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+//    //gson
+//    compile group: 'com.google.code.gson',name:'gson',version: "${gsonVersion}"
+}

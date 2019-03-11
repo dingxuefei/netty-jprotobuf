@@ -1,0 +1,72 @@
+plugins {
+    id 'java'
+    id 'maven'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/commons-codec/commons-codec
+    compile group: 'commons-codec', name: 'commons-codec'
+    // https://mvnrepository.com/artifact/org.ostermiller/utils
+    compile group: 'org.ostermiller', name: 'utils', version: "${ostermillerVersion}"
+
+    //commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: "${lang3Version}"
+    // https://mvnrepository.com/artifact/dom4j/dom4j
+    compile group: 'dom4j', name: 'dom4j', version: "${dom4jVersion}"
+    // https://mvnrepository.com/artifact/org.apache.poi/poi
+    compile group: 'org.apache.poi', name: 'poi', version: "${poiVersion}"
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: "${poiooxmlVersion}"
+    // https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans
+    compile group: 'org.apache.xmlbeans', name: 'xmlbeans', version: "${xmlbeansVersion}"
+
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: "${commonIOVersion}"
+    // https://mvnrepository.com/artifact/stax/stax-api
+    compile group: 'stax', name: 'stax-api', version: "${staxVersion}"
+    // https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: "${beanutilsVersion}"
+
+    compile group: 'com.itextpdf', name: 'itext-asian', version: '5.2.0'
+    compile group: 'com.lowagie', name: 'itext', version: '2.1.7'
+
+// https://mvnrepository.com/artifact/com.google.zxing/core
+    compile group: 'com.google.zxing', name: 'core', version: '3.2.1'
+
+    compile fileTree(dir: 'lib', include: '*.jar')
+
+    //jzip压缩
+    compile group: 'org.apache.ant', name: 'ant', version: '1.7.1'
+
+    // ip to area
+    compile group: 'org.lionsoul', name: 'ip2region', version: "${ip2regionVersion}"
+
+    //hutool-all
+    compile "cn.hutool:hutool-all:${htoolVersion}"
+
+    compile "cglib:cglib:${cglibVersion}"
+
+    //https://mvnrepository.com/artifact/com.google.guava/guava
+    compile group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
+
+    // https://mvnrepository.com/artifact/com.belerweb/pinyin4j
+    compile group: 'com.belerweb', name: 'pinyin4j', version: "${pingyin4jVersion}"
+
+
+
+}
+
+install {
+    repositories.mavenInstaller {
+        pom.version="${project.version}"
+        pom.artifactId="${project.archivesBaseName}"
+        pom.groupId="${project.group}"
+    }
+}

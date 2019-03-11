@@ -1,0 +1,93 @@
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+    mavenCentral()
+    mavenLocal()
+}
+
+configurations {
+    compile.exclude module: "spring-boot-starter-tomcat"
+    mybatisGenerator
+}
+
+dependencies {
+    mybatisGenerator "org.mybatis.generator:mybatis-generator-core:${generatorCoreVersion}"
+    mybatisGenerator "mysql:mysql-connector-java"
+    mybatisGenerator "tk.mybatis:mapper:${tkMybatisVersion}"
+
+    //导入基础工具工程
+    compile project (":common:common-tools")
+    //导入web相关的基础工具工程
+    compile project (":common:common-web-tools")
+    //导入模板
+    compile project (":templet")
+
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-undertow'
+//    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter',version:"${mybatisStaterVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-cache'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-websocket'
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version:"${springCloudConfigVersion}"
+    compile('org.springframework.boot:spring-boot-starter-validation')
+
+    compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: "${mybatis_plus_boot_starter_version}"
+    // https://mvnrepository.com/artifact/org.apache.velocity/velocity-engine-core
+    compile group: 'org.apache.velocity', name: 'velocity-engine-core', version: "${velocity_engine_core_version}"
+
+    // https://mvnrepository.com/artifact/freemarker/freemarker
+    compile group: 'freemarker', name: 'freemarker', version: "${freemarkerVersion}"
+
+    //swagger
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: "${swaggerVersion}"
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: "${swaggerVersion}"
+    // mysql连接
+    compile group: 'mysql', name: 'mysql-connector-java'
+    //mybatis分页插件
+    compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: "${pagehelperVersion}"
+    //druid连接池配置
+//    compile group: 'com.alibaba', name: 'druid-spring-boot-starter', version: "${druidVersion}"
+    // https://mvnrepository.com/artifact/com.alibaba/druid
+    compile group: 'com.alibaba', name: 'druid', version: '1.1.14'
+
+
+
+    //okhttp
+    compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+    //google caffeine
+    compile group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: "${caffeineVersion}"
+    //gson
+    compile group: 'com.google.code.gson',name:'gson'
+
+    //jwt
+    compile group: 'com.auth0', name: 'java-jwt', version: "${jwtVersion}"
+
+    //eu.bitwalker
+    compile group: 'nl.bitwalker', name: 'UserAgentUtils', version: "${userAgentUtilVersion}"
+
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    compile group: 'org.jsoup', name: 'jsoup', version: "${jsoupVersion}"
+
+    // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+    compile group: 'org.xerial', name: 'sqlite-jdbc'
+
+}
+
+//mybatis generator配置
+apply from: "mybatis-generator.gradle"
+
+//打入本地maven库配置
+install {
+    repositories.mavenInstaller {
+        pom.version="${project.version}"
+        pom.artifactId="${project.archivesBaseName}"
+        pom.groupId="${project.group}"
+    }
+}
+

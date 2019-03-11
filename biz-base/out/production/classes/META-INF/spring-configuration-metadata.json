@@ -1,0 +1,139 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.iscas.base.biz.config.cros.CrosProps",
+      "name": "cros",
+      "type": "com.iscas.base.biz.config.cros.CrosProps"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.okhttp.OkHttpProps",
+      "name": "okhttp",
+      "type": "com.iscas.base.biz.config.okhttp.OkHttpProps"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.ratelimiter.RateLimiterProps",
+      "name": "rate.limiter",
+      "type": "com.iscas.base.biz.config.ratelimiter.RateLimiterProps"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.db.DruidConfiguration",
+      "name": "spring.datasource.druid.mysql",
+      "sourceMethod": "db1()",
+      "type": "javax.sql.DataSource"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.test.model.ConfigTestProps",
+      "name": "test.config",
+      "type": "com.iscas.base.biz.test.model.ConfigTestProps"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.auth.TokenProps",
+      "name": "token",
+      "type": "com.iscas.base.biz.config.auth.TokenProps"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.iscas.base.biz.config.cros.CrosProps",
+      "defaultValue": "true",
+      "name": "cros.credentials",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.cros.CrosProps",
+      "defaultValue": "Content-Type, Data-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Accept, DataType, responseType",
+      "name": "cros.headers",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.cros.CrosProps",
+      "defaultValue": "\/webSocketServer\/*",
+      "name": "cros.ignore-urls",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.cros.CrosProps",
+      "defaultValue": "POST, GET, PUT, DELETE, OPTIONS",
+      "name": "cros.methods",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.cros.CrosProps",
+      "defaultValue": "*",
+      "name": "cros.origin",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.okhttp.OkHttpProps",
+      "defaultValue": 2000,
+      "name": "okhttp.connect-timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.okhttp.OkHttpProps",
+      "defaultValue": 5,
+      "name": "okhttp.keep-alive-duration",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.okhttp.OkHttpProps",
+      "defaultValue": 15,
+      "name": "okhttp.max-idle-connection",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.okhttp.OkHttpProps",
+      "defaultValue": 2000,
+      "name": "okhttp.read-timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.okhttp.OkHttpProps",
+      "defaultValue": 2000,
+      "name": "okhttp.write-timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.ratelimiter.RateLimiterProps",
+      "defaultValue": 500,
+      "name": "rate.limiter.max-wait",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.ratelimiter.RateLimiterProps",
+      "defaultValue": 20,
+      "name": "rate.limiter.permits-per-second",
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.ratelimiter.RateLimiterProps",
+      "name": "rate.limiter.static-url",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.test.model.ConfigTestProps",
+      "name": "test.config.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.test.model.ConfigTestProps",
+      "name": "test.config.phone",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.auth.TokenProps",
+      "defaultValue": -1,
+      "name": "token.cookie-expire",
+      "description": "token保存在cookie的时间(毫秒)",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.iscas.base.biz.config.auth.TokenProps",
+      "defaultValue": 14440,
+      "name": "token.expire",
+      "description": "token过期时间(分钟)",
+      "type": "java.lang.Integer"
+    }
+  ]
+}

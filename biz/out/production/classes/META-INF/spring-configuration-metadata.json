@@ -1,0 +1,46 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.iscas.biz.config.distribute.DistributeClientProps",
+      "name": "distribute.client",
+      "type": "com.iscas.biz.config.distribute.DistributeClientProps"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.iscas.biz.config.distribute.DistributeClientProps",
+      "defaultValue": 0,
+      "name": "distribute.client.all-idle-time-seconds",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.iscas.biz.config.distribute.DistributeClientProps",
+      "name": "distribute.client.client-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.iscas.biz.config.distribute.DistributeClientProps",
+      "defaultValue": 0,
+      "name": "distribute.client.read-idle-time-seconds",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.iscas.biz.config.distribute.DistributeClientProps",
+      "name": "distribute.client.remote-host",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.iscas.biz.config.distribute.DistributeClientProps",
+      "defaultValue": 0,
+      "name": "distribute.client.remote-port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.iscas.biz.config.distribute.DistributeClientProps",
+      "defaultValue": 0,
+      "name": "distribute.client.write-idle-time-seconds",
+      "type": "java.lang.Integer"
+    }
+  ]
+}

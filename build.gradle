@@ -1,0 +1,57 @@
+
+buildscript {
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+        maven { url "https://repo.spring.io/libs-milestone/" }
+        jcenter()
+        mavenCentral()
+
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+    }
+}
+apply plugin:'maven'
+subprojects  {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'maven'
+    group = 'com.iscas'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    configurations {
+        compile.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        compile.exclude group: 'org.apache.tomcat'
+        compile.exclude group: 'org.apache.tomcat.embed'
+    }
+
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+        maven { url "https://repo.spring.io/libs-milestone/" }
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        //lombok
+        compile group: 'org.projectlombok', name: 'lombok'
+        //junit
+        testCompile group: 'junit', name: 'junit',version:"${junitVersion}"
+    }
+    dependencyManagement {
+        imports {
+            //依赖管理
+            mavenBom "io.spring.platform:platform-bom:${platformVersion}"
+        }
+    }
+    //这里一定得要。在多模块下，不然编译失败，因为不会把信赖模块给打包。
+    jar {
+        enabled = true
+    }
+
+
+}

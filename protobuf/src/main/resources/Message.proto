@@ -1,0 +1,63 @@
+syntax = "proto2";
+
+option java_package="com.iscas.protobuf";
+option java_outer_classname = "Message";
+//import "Command.proto";
+
+message MessageBase {
+
+    /**
+    * 客户端ID
+    */
+	required string clientId = 1;
+
+	/**
+     * 消息类型
+     */
+  	required CommandType cmd = 2;
+
+  	/**
+      * 数据（JSON）
+    */
+  	optional string data = 3;
+
+
+  	/**
+     * 指令类型
+     */
+    enum CommandType {
+    	/**
+    	 * 验证
+    	 */
+    	AUTH = 1;
+    	/**
+    	 * ping
+    	 */
+    	PING = 2;
+    	/**
+    	 * pong
+    	 */
+    	PONG = 3;
+
+    	/**
+    	 * 上传数据
+    	 */
+    	UPLOAD_DATA = 4;
+    	/**
+    	 * 推送数据
+    	 */
+    	PUSH_DATA = 5;
+
+    	/**
+    	*模型吐出的数据
+    	*/
+    	MODEL_DATA=6;
+
+    	/**
+    	 * 验证返回,如果有必要的可用于消息回执
+    	 */
+    	AUTH_BACK = 11;
+
+    }
+
+}
